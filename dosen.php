@@ -1,19 +1,20 @@
 <?php
+require_once 'User.php';
 require_once 'Login.php';
 
-class Dosen implements Login {
-    private $nama;
+class Dosen extends User implements Login {
+    private $nidn;
 
-    public function __construct($nama) {
-        $this->nama = $nama;
+    public function __construct($nama, $email, $nidn) {
+        parent::__construct($nama, $email);
+        $this->nidn = $nidn;
+    }
+
+    public function tampilkanInfoUser() {
+        echo "Dosen: {$this->nama}, NIDN: {$this->nidn}, Email: {$this->email}<br>";
     }
 
     public function login($username, $password) {
-        if ($password === "1111") {
-            echo "Login berhasil untuk Dosen: {$this->nama}\n";
-        } else {
-            echo "Login gagal untuk Dosen: {$this->nama}\n";
-        }
+        echo "Dosen {$this->nama} login dengan username: $username dan password: $password<br>";
     }
 }
-?>

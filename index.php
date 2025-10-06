@@ -1,10 +1,20 @@
 <?php
-require_once 'Mahasiswa.php';
-require_once 'Dosen.php';
+require_once 'classes/Mahasiswa.php';
+require_once 'classes/Dosen.php';
+require_once 'classes/Staff.php';
 
-$mhs = new Mahasiswa("vikry");
-$dsn = new Dosen("Pak Ajib");
+$users = [
+    new Mahasiswa("Vikry", "Vikry@email.com", "M001"),
+    new Dosen("Ibu Sri", "Sri@univ.ac.id", "D123"),
+    new Staff("Pak Ajib", "Ajib@univ.ac.id", "Administrasi")
+];
 
-$mhs->login("vikryi123", "1234");    // Login berhasil
-$dsn->login("ajib_dsn", "1111");   // Login gagal
-?>
+foreach ($users as $user) {
+    $user->tampilkanInfoUser();
+
+    if ($user instanceof Login) {
+        $user->login("username", "1234");
+    }
+
+    echo "<hr>";
+}

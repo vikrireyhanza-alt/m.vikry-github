@@ -1,19 +1,15 @@
 <?php
-require_once 'Login.php';
+require_once 'User.php';
 
-class Mahasiswa implements Login {
-    private $nama;
+class Mahasiswa extends User {
+    private $nim;
 
-    public function __construct($nama) {
-        $this->nama = $nama;
+    public function __construct($nama, $email, $nim) {
+        parent::__construct($nama, $email);
+        $this->nim = $nim;
     }
 
-    public function login($username, $password) {
-        if ($password === "1234") {
-            echo "Login berhasil untuk Mahasiswa: {$this->nama}\n";
-        } else {
-            echo "Login gagal untuk Mahasiswa: {$this->nama}\n";
-        }
+    public function tampilkanInfoUser() {
+        echo "Mahasiswa: {$this->nama}, NIM: {$this->nim}, Email: {$this->email}<br>";
     }
 }
-?>

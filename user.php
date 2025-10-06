@@ -1,17 +1,12 @@
 <?php
-class User {
+abstract class User {
     protected $nama;
+    protected $email;
 
-    public function __construct($nama) {
+    public function __construct($nama, $email) {
         $this->nama = $nama;
+        $this->email = $email;
     }
 
-    public function getNama() {
-        return $this->nama;
-    }
-
-    public function getRole() {
-        return "User";
-    }
+    abstract public function tampilkanInfoUser();
 }
-?>

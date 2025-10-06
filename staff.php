@@ -1,20 +1,20 @@
 <?php
-require_once "User.php";
+require_once 'User.php';
+require_once 'Login.php';
 
-class Staff extends User {
-    private $departemen;
+class Staff extends User implements Login {
+    private $bagian;
 
-    public function __construct($nama, $departemen) {
-        parent::__construct($nama);
-        $this->departemen = $departemen;
+    public function __construct($nama, $email, $bagian) {
+        parent::__construct($nama, $email);
+        $this->bagian = $bagian;
     }
 
-    public function getRole() {
-        return "Staff";
+    public function tampilkanInfoUser() {
+        echo "Staff: {$this->nama}, Bagian: {$this->bagian}, Email: {$this->email}<br>";
     }
 
-    public function getDepartemen() {
-        return $this->departemen;
+    public function login($username, $password) {
+        echo "Staff {$this->nama} login dengan username: $username dan password: $password<br>";
     }
 }
-?>
