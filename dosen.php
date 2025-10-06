@@ -9,7 +9,7 @@ class Dosen implements Login {
     }
 
     public function login($username, $password) {
-        if ($password === "1234") {
+        if ($password === "1111") {
             echo "Login berhasil untuk Dosen: {$this->nama}\n";
         } else {
             echo "Login gagal untuk Dosen: {$this->nama}\n";
